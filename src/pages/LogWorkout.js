@@ -1,11 +1,12 @@
 import React from "react";
-
+import Header from "../Components/Header";
 function LogWorkout () {
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
-  ); 
+    <>
+      <Header/>
+      <h2>LogWorkout</h2>
+    </>
+  );
 }
 
 export default LogWorkout;

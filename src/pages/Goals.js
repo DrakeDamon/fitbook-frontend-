@@ -1,12 +1,13 @@
 import React from "react";
-
+import Header from "../Components/Header";
 function Goals () {
 
   return (
-<div>
-<h1>Hello</h1>
-</div>
-  )
+    <>
+      <Header/>
+      <h2>Goals</h2>
+    </>
+  );
 }
 
 export default Goals;

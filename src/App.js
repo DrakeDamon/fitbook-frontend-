@@ -1,18 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
 import ReactDOM from "react-dom/client";
-import Dashboard from "./Dashboard";
-import LogWorkout from "./LogWorkout";
-import Goals from "./Goals";
+import { BrowserRouter, Routes, Route } from "react-router-dom"; 
+import Dashboard from './pages/Dashboard';
+import LogWorkout from './pages/LogWorkout';
+import Goals from './pages/Goals';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Dashboard />);
 function App() {
   return (
     <div className="App">
-      <Dashboard />
-      <LogWorkout />
-      <Goals />
+     <BrowserRouter>
+     <Routes>
+     <Route index element= {<Dashboard/>} />
+     <Route path="/dashboard" element={<Dashboard/>} /> 
+     </Routes>
+  </BrowserRouter>
     </div>
   );
 }
