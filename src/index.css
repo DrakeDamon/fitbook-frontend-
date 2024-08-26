@@ -1,13 +1,116 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Container for the entire dashboard */
+.dashboard {
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
+}
+
+.sidebar {
+  flex: 0.5; /* Takes up 1 part of the total 3 parts */
+  flex-direction: column; /*
+  background-color: white; /* White background color */
+  color: #333; /* Dark text color for contrast */
+  height: 100vh; /* Full height of the viewport */
+}
+
+.main-content {
+  display: flex; /* Flex container */
+  flex-direction: column;
+  flex: 2; /* Takes up 2 parts of the total 3 parts */
+  background-color: #f5f5f5; /* Light gray background to differentiate from the sidebar */
+  padding: 20px;
+}
+
+.box {
+  color: black;
+}
+
+.container {
+  height: 100%;
+}
+
+/* Styles for search bar */
+/* Search Bar Container */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0; /* Light gray background similar to the dashboard */
+  border-radius: 20px; /* Rounded edges for a modern look */
+  padding: 5px 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Search Input Field */
+.search-input {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  color: #333; /* Darker text color for contrast */
+}
+
+/* Search Button */
+.search-button {
+  border: none;
+  background-color: transparent; /* Transparent background */
+  cursor: pointer;
+  font-size: 18px;
+  color: #333; /* Match the text color */
+}
+
+/* Optional: Add hover effects to the search button */
+.search-button:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+/* Styles for the cards */
+/* Container for the Cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 20px; /* Space between cards */
+  margin: 20px; /* Space around the cards container */
+}
+
+/* Individual Card */
+.card {
+  background-color: white; /* White background */
+  padding: 50px 10px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+/* Hover Effect */
+.card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* Card Titles */
+.card h3 {
+  font-size: 18px;
+  color: #333; /* Darker color for titles */
+  margin-bottom: 10px;
+}
+
+/* Card Content */
+.card p {
+  font-size: 14px;
+  color: #666; /* Softer color for content */
+  margin: 5px 0;
 }
