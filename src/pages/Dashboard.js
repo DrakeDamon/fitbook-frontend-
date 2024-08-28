@@ -7,7 +7,7 @@ function Dashboard({links}) {
   return (
     <div class="dashboard" >
       <div class='sidebar'>
-      <h2>Fitbook</h2>
+      <img src="src/fitbook.PNG" alt="Fitbook Logo" className="logo" />
       <NavLink >
       <Sidebar links={links}/>
       </NavLink>

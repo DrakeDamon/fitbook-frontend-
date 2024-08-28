@@ -114,3 +114,56 @@ code {
   color: #666; /* Softer color for content */
   margin: 5px 0;
 }
+
+/* Styles for the form*/
+.log-workout-form {
+  background-color: #fff; /* White background */
+  padding: 20px 30px; /* /*
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  max-width: 400px;
+  margin: 30px 300px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group input[type="date"] {
+  padding: 8px;
+}
+
+.form-group textarea {
+  resize: none;
+  height: 100px;
+}
+
+.submit-button {
+  background-color: #ff6347; /* Tomato color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: #ff4500; /* Darker shade on hover */
+}
