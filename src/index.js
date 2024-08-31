@@ -1,13 +1,58 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'; 
+import Dashboard from './pages/Dashboard';
+import LogWorkout from './pages/LogWorkout';
+import Goals from './pages/Goals';
+import Nopage from './pages/Nopage';
+import Settings from './pages/Settings';
+import FoodForm from './pages/FoodForm';
+import '../src/index.css'
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+const links = [
+  { name: 'Dashboard', path: '/dashboard' },
+  { name: 'Log Workout', path: '/log-workout' },
+  { name: 'Goals', path: '/goals' },
+  { name: 'Settings', path: '/settings' },
+];
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Define your router here
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Dashboard links={links} />,
+    errorElement: <Nopage />,
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard links={links} />,
+  },
+  {
+    path: "log-workout",
+    element: <LogWorkout />,
+  },
+  {
+    path: "goals",
+    element: <Goals />,
+  },
+  {
+    path: "settings",
+    element: <Settings />,
+  },
+  {
+    path: "*",
+    element: <Nopage />,
+  },
+  {
+    path: "foodform",
+    element: <FoodForm />,
+  },
+]);
+
+// Render the RouterProvider directly
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);

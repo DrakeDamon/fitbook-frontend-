@@ -1,11 +1,19 @@
-import React from 'react';
+import {useState} from 'react';
+
 
 function LogWorkoutForm() {
+  const [logWorkout, setLogWorkout] = useState('')
+
+  function handleChange(e) {
+    setLogWorkout(e.target.value)
+  }
   return (
     <form className="log-workout-form">
       <div className="form-group">
         <label htmlFor="workoutName">Workout Name</label>
         <input
+        value={logWorkout}
+        onChange={handleChange}
           type="text"
           id="workoutName"
           placeholder="Enter workout name"
