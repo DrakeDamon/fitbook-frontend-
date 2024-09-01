@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'; 
 import Dashboard from './pages/Dashboard';
-import LogWorkout from './pages/LogWorkout';
+import LogWorkout from './pages/LogWorkout'
 import Goals from './pages/Goals';
 import Nopage from './pages/Nopage';
 import Settings from './pages/Settings';

@@ -1,21 +1,16 @@
-import {useState} from 'react';
+import React from 'react';
 
+function LogWorkoutForm({ logWorkout, setLogWorkout, date, setDate, duration, setDuration, notes, setNotes }) {
 
-function LogWorkoutForm() {
-  const [logWorkout, setLogWorkout] = useState('')
-
-  function handleChange(e) {
-    setLogWorkout(e.target.value)
-  }
   return (
     <form className="log-workout-form">
       <div className="form-group">
         <label htmlFor="workoutName">Workout Name</label>
         <input
-        value={logWorkout}
-        onChange={handleChange}
           type="text"
           id="workoutName"
+          value={logWorkout}
+          onChange={setLogWorkout}
           placeholder="Enter workout name"
           required
         />
@@ -26,6 +21,8 @@ function LogWorkoutForm() {
         <input
           type="date"
           id="date"
+          value={date}
+          onChange={setDate}
           required
         />
       </div>
@@ -35,6 +32,8 @@ function LogWorkoutForm() {
         <input
           type="text"
           id="duration"
+          value={duration}
+          onChange={setDuration}
           placeholder="Enter duration (e.g., 1 hour)"
           required
         />
@@ -44,6 +43,8 @@ function LogWorkoutForm() {
         <label htmlFor="notes">Notes</label>
         <textarea
           id="notes"
+          value={notes}
+          onChange={setNotes}
           placeholder="Enter any additional notes"
         />
       </div>

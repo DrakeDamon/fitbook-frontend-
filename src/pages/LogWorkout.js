@@ -1,32 +1,54 @@
-import React from "react";
-import { Form } from "react-router-dom";
-import Searchbar  from "../Components/Searchbar";
+import React, { useState } from "react";
+import Searchbar from "../Components/Searchbar";
 import Sidebar from "../Components/Sidebar";
 import { NavLink } from "react-router-dom";
 import LogWorkoutForm from "../Components/Form";
-function LogWorkout () {
 
+function LogWorkout() {
   const links = [
     { name: 'Dashboard', path: '/dashboard' },
     { name: 'Log Workout', path: '/log-workout' },
     { name: 'Goals', path: '/goals' },
     { name: 'Settings', path: '/settings' },
   ];
+
+  // State management for form inputs
+  const [logWorkout, setLogWorkout] = useState('');
+  const [date, setDate] = useState('');
+  const [duration, setDuration] = useState('');
+  const [notes, setNotes] = useState('');
+
+  // Individual functions to handle input changes
+  const handleWorkoutChange = (e) => {
+    setLogWorkout(e.target.value);
+    console.log("Workout Name:", e.target.value); // Log the updated value
+  };
+    const handleDateChange = (e) => setDate(e.target.value);
+  const handleDurationChange = (e) => setDuration(e.target.value);
+  const handleNotesChange = (e) => setNotes(e.target.value);
+
   return (
-    <div class="dashboard">
-      <div class='sidebar'>
-      <img src="/Users/daviddamon/Desktop/Fitbook.react/fitbook-frontend-/public/fitbook.PNG" alt="Fitbook Logo" className="logo" />
-      <NavLink >
-      <Sidebar links={links}/>
-      </NavLink>
+    <div className="dashboard">
+      <div className="sidebar">
+        <img src="/Users/daviddamon/Desktop/Fitbook.react/fitbook-frontend-/public/fitbook.PNG" alt="Fitbook Logo" className="logo" />
+        <NavLink>
+          <Sidebar links={links} />
+        </NavLink>
       </div>
       <div className="main-content">
         <Searchbar />
-      <div class="container">
-      <form>
-        <LogWorkoutForm />
-      </form>
-      </div>
+        <div className="container">
+          <LogWorkoutForm
+            logWorkout={logWorkout}
+            setLogWorkout={handleWorkoutChange}
+            date={date}
+            setDate={handleDateChange}
+            duration={duration}
+            setDuration={handleDurationChange}
+            notes={notes}
+            setNotes={handleNotesChange}
+          />
+        </div>
       </div>
     </div>
   );
