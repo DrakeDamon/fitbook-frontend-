@@ -1,11 +1,11 @@
 import React from "react";
-import { NavLink, useOutletContext } from "react-router-dom"; // Import NavLink
+import { NavLink, useOutletContext } from "react-router-dom";
 import Sidebar from "../Components/Sidebar";
 import Container from "../Components/Container";
 import Searchbar from "../Components/Searchbar";
 
 function Dashboard() {
-  const { links } = useOutletContext(); // Use links from context; remove unused variables
+  const { links } = useOutletContext(); 
 
   return (
     <div className="dashboard">

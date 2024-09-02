@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Searchbar from "../Components/Searchbar";
 import Sidebar from "../Components/Sidebar";
-import { NavLink } from "react-router-dom";
+import { NavLink, useOutletContext  } from "react-router-dom";
 import LogWorkoutForm from "../Components/Form";
 
 function LogWorkout() {
-  const links = [
-    { name: 'Dashboard', path: '/dashboard' },
-    { name: 'Log Workout', path: '/log-workout' },
-    { name: 'Goals', path: '/goals' },
-    { name: 'Settings', path: '/settings' },
-  ];
+ const {links, workouts, setWorkouts } = useOutletContext();
+
 
   // State management for form inputs
   const [logWorkout, setLogWorkout] = useState('');
@@ -24,8 +20,22 @@ function LogWorkout() {
     console.log("Workout Name:", e.target.value); // Log the updated value
   };
     const handleDateChange = (e) => setDate(e.target.value);
+
   const handleDurationChange = (e) => setDuration(e.target.value);
-  const handleNotesChange = (e) => setNotes(e.target.value);
+  const handleNotesChange = (e) => {setNotes(e.target.value);
+  console.log("notes:", e.target.value);
+  }; 
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const newWorkout={ date, type: logWorkout, duration, notes };
+    setWorkouts([...workouts, newWorkout])
+    setLogWorkout('');
+    setDate('');
+    setDuration('');
+    setNotes('');
+  }
 
   return (
     <div className="dashboard">
@@ -38,7 +48,9 @@ function LogWorkout() {
       <div className="main-content">
         <Searchbar />
         <div className="container">
-          <LogWorkoutForm
+          <LogWorkoutForm 
+            workouts={workouts}
+            setWorkouts={setWorkouts}
             logWorkout={logWorkout}
             setLogWorkout={handleWorkoutChange}
             date={date}
@@ -47,11 +59,13 @@ function LogWorkout() {
             setDuration={handleDurationChange}
             notes={notes}
             setNotes={handleNotesChange}
+            onFormSubmit={handleSubmit}
+
           />
         </div>
       </div>
       <div className='sidebar-right'>
-     
+      
       </div>
     </div>
   );

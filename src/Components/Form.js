@@ -1,9 +1,9 @@
 import React from 'react';
 
-function LogWorkoutForm({ logWorkout, setLogWorkout, date, setDate, duration, setDuration, notes, setNotes }) {
+function LogWorkoutForm({ logWorkout, setLogWorkout, date, setDate, duration, setDuration, notes, setNotes, onFormSubmit }) {
 
   return (
-    <form className="log-workout-form">
+    <form className="log-workout-form" onSubmit={onFormSubmit}>
       <div className="form-group">
         <label htmlFor="workoutName">Workout Name</label>
         <input
