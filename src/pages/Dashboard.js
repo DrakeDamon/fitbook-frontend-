@@ -5,7 +5,7 @@ import Container from "../Components/Container";
 import Searchbar from "../Components/Searchbar";
 
 function Dashboard() {
-  const { links } = useOutletContext(); 
+  const { links, workouts } = useOutletContext(); 
 
   return (
     <div className="dashboard">
@@ -17,7 +17,7 @@ function Dashboard() {
       <div className="main-content">
         <Searchbar />
         <div className="container">
-          <Container />
+          <Container workouts={workouts} />
         </div>
       </div>
     </div>

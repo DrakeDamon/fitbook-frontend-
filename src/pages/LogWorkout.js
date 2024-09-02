@@ -64,9 +64,6 @@ function LogWorkout() {
           />
         </div>
       </div>
-      <div className='sidebar-right'>
-      
-      </div>
     </div>
   );
 }
