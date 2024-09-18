@@ -29,10 +29,14 @@ function App() {
 const addWorkout = (newWorkout) => {
   setWorkouts((prevWorkouts) => [...prevWorkouts, newWorkout]);
 };
+
+const handleDelete = (id) => {
+  setWorkouts((prevWorkouts) => prevWorkouts.filter((workout) => workout.id !== id));
+};
   
   return (
     <div>
-      <Outlet context={{links, workouts: displayedWorkouts, setWorkouts, sharedData, setSharedData, setSearch, search, addWorkout }} />
+      <Outlet context={{links, workouts: displayedWorkouts, setWorkouts, sharedData, setSharedData, setSearch, search, addWorkout, handleDelete }} />
     </div>
   );
 }

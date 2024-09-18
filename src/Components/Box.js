@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Box({ type, duration, date, calories, name }) {
+function Box({id, type, duration, date, calories, name, handleDelete }) {
   return (
     <div className="card">
       <h3>{name}</h3>
@@ -8,7 +8,7 @@ function Box({ type, duration, date, calories, name }) {
       <p>{type}</p>
       <p>Calories: {calories}</p>
       <div>
-      <button>Delete Workout</button>
+      <button onClick={() => handleDelete(id)}>Delete Workout</button>
       </div>
     </div>
   );

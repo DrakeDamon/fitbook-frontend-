@@ -25,14 +25,31 @@ function LogWorkout() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newWorkout = { id: Date.now(), name: logWorkout, type, duration, calories }; // Ensure unique ID
-    addWorkout(newWorkout); 
+
+    // Create a new workout object
+    const newWorkout = { name: logWorkout, type, duration, calories };
+
+    // POST request to add a new workout
+    fetch('http://localhost:5001/workouts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newWorkout)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('New workout added:', data);
+      addWorkout(data); // Use the response data to add the workout to state
+    })
+    .catch(error => console.error('Error adding workout:', error));
+
+    // Reset the form fields
     setLogWorkout('');
     setType('');
     setDuration('');
     setCalories('');
   };
-
   return (
     <div className="dashboard">
       <div className="sidebar">
