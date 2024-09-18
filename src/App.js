@@ -4,16 +4,16 @@ import { Outlet } from 'react-router-dom';
 function App() {
   // State management for the shared data
   const [sharedData, setSharedData] = useState("Shared Information");
-  const [workouts, setWorkouts] = useState("")
+  const [workouts, setWorkouts] = useState([])
+  const [search, setSearch]=useState('')
+
   const links = [
     { name: 'Dashboard', path: '/dashboard' },
     { name: 'Log Workout', path: '/log-workout' },
-    { name: 'Goals', path: '/goals' },
-    { name: 'Settings', path: '/settings' },
-  ];
+    ];
 
   useEffect(() => {
-    fetch('https://my.api.mockaroo.com/workouts.json?key=21b7ed20')
+    fetch('http://localhost:5001/workouts')
       .then((res) => res.json())
       .then((data) => {
         console.log('Fetched data:', data);
@@ -21,10 +21,18 @@ function App() {
       })
       .catch((error) => console.error('Error fetching data:', error)); 
   }, []);
+
+  const displayedWorkouts = workouts.filter((workout) =>
+  workout.name.toLowerCase().includes(search.toLowerCase())
+);
+
+const addWorkout = (newWorkout) => {
+  setWorkouts((prevWorkouts) => [...prevWorkouts, newWorkout]);
+};
   
   return (
     <div>
-      <Outlet context={{links,workouts,setWorkouts, sharedData, setSharedData }} />
+      <Outlet context={{links, workouts: displayedWorkouts, setWorkouts, sharedData, setSharedData, setSearch, search, addWorkout }} />
     </div>
   );
 }

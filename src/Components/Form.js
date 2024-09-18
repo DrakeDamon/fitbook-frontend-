@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LogWorkoutForm({ logWorkout, setLogWorkout, date, setDate, duration, setDuration, notes, setNotes, onFormSubmit }) {
+function LogWorkoutForm({ logWorkout, setLogWorkout, type, setType, duration, setDuration, calories, setCalories, onFormSubmit }) {
 
   return (
     <form className="log-workout-form" onSubmit={onFormSubmit}>
@@ -17,12 +17,13 @@ function LogWorkoutForm({ logWorkout, setLogWorkout, date, setDate, duration, se
       </div>
 
       <div className="form-group">
-        <label htmlFor="date">Date</label>
+        <label htmlFor="type">Type</label>
         <input
-          type="date"
-          id="date"
-          value={date}
-          onChange={setDate}
+          type="text"
+          id="type"
+          value={type}
+          onChange={setType}
+          placeholder="Enter workout type (e.g., cardio, HIIT, weights)"
           required
         />
       </div>
@@ -40,12 +41,13 @@ function LogWorkoutForm({ logWorkout, setLogWorkout, date, setDate, duration, se
       </div>
 
       <div className="form-group">
-        <label htmlFor="notes">Notes</label>
-        <textarea
-          id="notes"
-          value={notes}
-          onChange={setNotes}
-          placeholder="Enter any additional notes"
+        <label htmlFor="calories">Calories</label>
+        <input
+          type="number"
+          id="calories"
+          value={calories}
+          onChange={setCalories}
+          placeholder="Enter calories burned"
         />
       </div>
 

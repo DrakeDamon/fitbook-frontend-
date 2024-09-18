@@ -7,9 +7,11 @@ function Container({workouts}) {
       {workouts.map((workout) => (
         <Box
           key={workout.id}
-          title={workout.type}
-          content={`${workout.duration} minutes`}
+          name={workout.name}
+          type={workout.type}
+          duration={`${workout.duration} minutes`}
           date={workout.date}
+          calories={workout.calories}
         />
       ))}     
     </div>

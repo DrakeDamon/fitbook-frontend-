@@ -258,3 +258,64 @@ input[type="date"] {
   border: none;
   background-color: #fff;
 }
+
+/* Form */
+/* Style the entire form container */
+workout-form {
+  background: linear-gradient(135deg, #fff 0%, #f0f4f8 100%);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Headline styling */
+form-header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Style the input fields */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Focus state for input fields */
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Style the button */
+log-workout-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Hover state for button */
+log-workout-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}

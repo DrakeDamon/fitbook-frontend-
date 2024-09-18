@@ -4,10 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Dashboard from './pages/Dashboard';
 import LogWorkout from './pages/LogWorkout';
-import Goals from './pages/Goals';
 import Nopage from './pages/Nopage';
-import Settings from './pages/Settings';
-import FoodForm from './pages/FoodForm';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -19,10 +16,6 @@ const router = createBrowserRouter([
       { index: true, element: <Dashboard /> }, // Set Dashboard as the default route
       { path: "dashboard", element: <Dashboard /> },
       { path: "log-workout", element: <LogWorkout /> },
-      { path: "goals", element: <Goals /> },
-      { path: "settings", element: <Settings /> },
-      { path: "foodform", element: <FoodForm /> },
-      { path: "*", element: <Nopage /> },
     ],
   },
 ]);

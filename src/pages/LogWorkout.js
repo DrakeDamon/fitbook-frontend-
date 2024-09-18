@@ -1,41 +1,37 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Searchbar from "../Components/Searchbar";
 import Sidebar from "../Components/Sidebar";
-import { NavLink, useOutletContext  } from "react-router-dom";
+import { NavLink, useOutletContext } from "react-router-dom";
 import LogWorkoutForm from "../Components/Form";
 
 function LogWorkout() {
- const {links, workouts, setWorkouts } = useOutletContext();
-
+  const { links, workouts, addWorkout } = useOutletContext(); // Destructure addWorkout from context
 
   // State management for form inputs
   const [logWorkout, setLogWorkout] = useState('');
-  const [date, setDate] = useState('');
+  const [type, setType] = useState(''); 
   const [duration, setDuration] = useState('');
-  const [notes, setNotes] = useState('');
+  const [calories, setCalories] = useState('');
 
   // Individual functions to handle input changes
   const handleWorkoutChange = (e) => {
     setLogWorkout(e.target.value);
-    console.log("Workout Name:", e.target.value); // Log the updated value
+    console.log("Workout Name:", e.target.value);
   };
-    const handleDateChange = (e) => setDate(e.target.value);
 
+  const handleTypeChange = (e) => setType(e.target.value); 
   const handleDurationChange = (e) => setDuration(e.target.value);
-  const handleNotesChange = (e) => {setNotes(e.target.value);
-  console.log("notes:", e.target.value);
-  }; 
-
+  const handleCaloriesChange = (e) => setCalories(e.target.value); 
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const newWorkout={ date, type: logWorkout, duration, notes };
-    setWorkouts([...workouts, newWorkout])
+    e.preventDefault();
+    const newWorkout = { id: Date.now(), name: logWorkout, type, duration, calories }; // Ensure unique ID
+    addWorkout(newWorkout); 
     setLogWorkout('');
-    setDate('');
+    setType('');
     setDuration('');
-    setNotes('');
-  }
+    setCalories('');
+  };
 
   return (
     <div className="dashboard">
@@ -46,21 +42,17 @@ function LogWorkout() {
         </NavLink>
       </div>
       <div className="main-content">
-        <Searchbar />
         <div className="container">
           <LogWorkoutForm 
-            workouts={workouts}
-            setWorkouts={setWorkouts}
             logWorkout={logWorkout}
             setLogWorkout={handleWorkoutChange}
-            date={date}
-            setDate={handleDateChange}
+            type={type}
+            setType={handleTypeChange}
             duration={duration}
             setDuration={handleDurationChange}
-            notes={notes}
-            setNotes={handleNotesChange}
+            calories={calories}
+            setCalories={handleCaloriesChange}
             onFormSubmit={handleSubmit}
-
           />
         </div>
       </div>
