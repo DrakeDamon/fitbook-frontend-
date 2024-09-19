@@ -10,6 +10,8 @@ function App() {
   const links = [
     { name: 'Dashboard', path: '/dashboard' },
     { name: 'Log Workout', path: '/log-workout' },
+    { name: 'About', path: '/about' },
+
     ];
 
   useEffect(() => {

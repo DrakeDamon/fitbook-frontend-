@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import LogWorkout from './pages/LogWorkout';
 import Nopage from './pages/Nopage';
 import './index.css';
+import About from './pages/About';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,8 @@ const router = createBrowserRouter([
       { index: true, element: <Dashboard /> }, // Set Dashboard as the default route
       { path: "dashboard", element: <Dashboard /> },
       { path: "log-workout", element: <LogWorkout /> },
+      { path: "about", element: <About /> },
+
     ],
   },
 ]);
