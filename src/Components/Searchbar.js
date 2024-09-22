@@ -4,9 +4,8 @@ function Searchbar({ setSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (e) => {
-    const value = e.target.value;
-    setSearchTerm(value); // Update local state
-    setSearch(value); // Update parent state to trigger filtering
+    setSearchTerm(e.target.value); 
+    setSearch(e.target.value); 
   };
 
 

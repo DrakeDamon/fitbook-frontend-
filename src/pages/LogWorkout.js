@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-import Searchbar from "../Components/Searchbar";
 import Sidebar from "../Components/Sidebar";
 import { NavLink, useOutletContext } from "react-router-dom";
 import LogWorkoutForm from "../Components/Form";
 
 function LogWorkout() {
-  const { links, workouts, addWorkout } = useOutletContext(); // Destructure addWorkout from context
-
-  // State management for form inputs
+  const { links, addWorkout } = useOutletContext(); 
   const [logWorkout, setLogWorkout] = useState('');
   const [type, setType] = useState(''); 
   const [duration, setDuration] = useState('');
   const [calories, setCalories] = useState('');
 
-  // Individual functions to handle input changes
   const handleWorkoutChange = (e) => {
     setLogWorkout(e.target.value);
     console.log("Workout Name:", e.target.value);
@@ -26,10 +22,8 @@ function LogWorkout() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Create a new workout object
     const newWorkout = { name: logWorkout, type, duration, calories };
 
-    // POST request to add a new workout
     fetch('http://localhost:5001/workouts', {
       method: 'POST',
       headers: {
@@ -40,11 +34,10 @@ function LogWorkout() {
     .then(response => response.json())
     .then(data => {
       console.log('New workout added:', data);
-      addWorkout(data); // Use the response data to add the workout to state
+      addWorkout(data); 
     })
     .catch(error => console.error('Error adding workout:', error));
 
-    // Reset the form fields
     setLogWorkout('');
     setType('');
     setDuration('');

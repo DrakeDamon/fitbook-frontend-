@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 
 function App() {
-  // State management for the shared data
   const [sharedData, setSharedData] = useState("Shared Information");
   const [workouts, setWorkouts] = useState([])
   const [search, setSearch]=useState('')
