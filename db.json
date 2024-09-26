@@ -62,6 +62,13 @@
       "type": "cardio",
       "duration": "50 minutes",
       "calories": "10"
+    },
+    {
+      "id": "2d6b",
+      "name": "running",
+      "type": "cardio",
+      "duration": "20 minutes",
+      "calories": "200"
     }
   ]
 }

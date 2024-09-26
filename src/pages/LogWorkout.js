@@ -1,23 +1,20 @@
 import React, { useState } from "react";
-import { NavLink, useOutletContext } from "react-router-dom";
-import LogWorkoutForm from "../Components/Form";
+import { useOutletContext } from "react-router-dom";
 
 function LogWorkout() {
-  const { links, addWorkout } = useOutletContext(); 
+  const { addWorkout } = useOutletContext(); 
   const [logWorkout, setLogWorkout] = useState('');
   const [type, setType] = useState(''); 
   const [duration, setDuration] = useState('');
   const [calories, setCalories] = useState('');
 
-  const handleWorkoutChange = (e) => {
-    setLogWorkout(e.target.value);
-    console.log("Workout Name:", e.target.value);
-  };
-
+  // Handlers for each input change
+  const handleWorkoutChange = (e) => setLogWorkout(e.target.value);
   const handleTypeChange = (e) => setType(e.target.value); 
   const handleDurationChange = (e) => setDuration(e.target.value);
   const handleCaloriesChange = (e) => setCalories(e.target.value); 
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -37,28 +34,68 @@ function LogWorkout() {
     })
     .catch(error => console.error('Error adding workout:', error));
 
+    // Reset the form fields
     setLogWorkout('');
     setType('');
     setDuration('');
     setCalories('');
   };
-  return (
 
-      <div className="main-content">
-        <div className="container">
-          <LogWorkoutForm 
-            logWorkout={logWorkout}
-            setLogWorkout={handleWorkoutChange}
-            type={type}
-            setType={handleTypeChange}
-            duration={duration}
-            setDuration={handleDurationChange}
-            calories={calories}
-            setCalories={handleCaloriesChange}
-            onFormSubmit={handleSubmit}
-          />
-        </div>
+  return (
+    <div className="main-content">
+      <div className="container">
+        <form className="log-workout-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="workoutName">Workout Name</label>
+            <input
+              type="text"
+              id="workoutName"
+              value={logWorkout}
+              onChange={handleWorkoutChange}
+              placeholder="Enter workout name"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="type">Type</label>
+            <input
+              type="text"
+              id="type"
+              value={type}
+              onChange={handleTypeChange}
+              placeholder="Enter workout type (e.g., cardio, HIIT, weights)"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="duration">Duration</label>
+            <input
+              type="text"
+              id="duration"
+              value={duration}
+              onChange={handleDurationChange}
+              placeholder="Enter duration (e.g., 1 hour)"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="calories">Calories</label>
+            <input
+              type="number"
+              id="calories"
+              value={calories}
+              onChange={handleCaloriesChange}
+              placeholder="Enter calories burned"
+            />
+          </div>
+
+          <button type="submit" className="submit-button">Log Workout</button>
+        </form>
       </div>
+    </div>
   );
 }
 
