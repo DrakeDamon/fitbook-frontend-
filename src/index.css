@@ -1,9 +1,4 @@
-/* colors
-navbar = #363636
-background = #151515
-words = #F1DFDE
-*/
-
+/* General body styling */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -11,81 +6,87 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #151515; /* Background color for the entire app */
+  color: #f1dfde; /* Text color */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-/* Container for the entire dashboard */
-.dashboard {
+/* Sidebar and main content container */
+.app-layout {
   display: flex;
-  height: 100vh; /* Full height of the viewport */
+  height: 100vh; /* Full viewport height */
 }
 
-.dashboard-two {
+/* Sidebar styling */
+.sidebar {
+  width: 250px; /* Fixed width for sidebar */
+  background-color: #363636;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  width: 100%;
+  height: 50%;
+}
+
+.sidebar img.logo {
+  width: 80%; /* Adjust logo size */
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
   display: flex;
   flex-direction: row;
-  height: 100vh; /* Full height of the viewport */
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar li {
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  color: white; /* Sidebar link color */
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
   width: 100%;
+  text-align: center;
 }
 
-.sidebar {
-  flex: 0.5; /* Takes up 1 part of the total 3 parts */
-  flex-direction: column;
-  align-self: center;
-  align-content: start;
-  background-color: #363636;
-  height: 100vh;
+.sidebar a:hover {
+  background-color: #4a4a4a;
+  border-radius: 8px;
 }
 
+/* Main content container */
 .main-content {
-  display: flex;
-  flex-direction: column;
-  flex: 2;
+  flex-grow: 1; /* Ensures it takes up the remaining space */
   background-color: #151515;
   padding: 20px;
+  overflow-y: auto; /* Allows content to scroll */
 }
 
+/* General styles for links */
 a:hover,
 a:visited,
 a:link,
 a:active {
   text-decoration: none;
-  color: #f1dfde;
+  color: white;
 }
 
-ul {
-  margin-top: 20px;
-}
-
-li {
-  font-size: 16px;
-  list-style-type: none;
-  margin-bottom: 10px;
-}
-
-.box {
-  color: black;
-}
-
-.container {
-  height: 100%;
-}
-
-/* Styles for search bar */
-/* Search Bar Container */
+/* Searchbar styling */
 .search-container {
   display: flex;
   align-items: center;
-  background-color: #f0f0f0; /* Light gray background similar to the dashboard */
-  border-radius: 20px; /* Rounded edges for a modern look */
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 20px;
   padding: 5px 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Search Input Field */
 .search-input {
   border: none;
   outline: none;
@@ -93,100 +94,77 @@ li {
   padding: 10px;
   width: 100%;
   font-size: 16px;
-  color: #333; /* Darker text color for contrast */
+  color: #333;
 }
 
-/* Search Button */
 .search-button {
   border: none;
-  background-color: transparent; /* Transparent background */
+  background-color: transparent;
   cursor: pointer;
   font-size: 18px;
-  color: #333; /* Match the text color */
+  color: #333;
 }
 
-/* Optional: Add hover effects to the search button */
 .search-button:hover {
-  color: #007bff; /* Change color on hover */
+  color: #007bff;
 }
 
-/* Styles for the cards */
-/* Container for the Cards */
+/* Container for the cards */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Two cards per row */
-  gap: 20px; /* Space between cards */
-  margin: 20px; /* Space around the cards container */
+  gap: 20px;
+  margin: 20px;
 }
 
-/* Individual Card */
+/* Individual card */
 .card {
-  background-color: white; /* White background */
+  background-color: white;
   padding: 50px 10px;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
-/* Hover Effect */
 .card:hover {
-  transform: translateY(-5px); /* Slight lift on hover */
+  transform: translateY(-5px);
 }
 
-/* Card Titles */
+/* Main content titles */
 .card h3 {
   font-size: 18px;
-  color: #333; /* Darker color for titles */
+  color: #333;
   margin-bottom: 10px;
 }
 
-/* Card Content */
 .card p {
   font-size: 14px;
-  color: #666; /* Softer color for content */
-  margin: 5px 0;
+  color: #666;
 }
 
-/* Styles for the form*/
+/* Form styling */
 .log-workout-form {
-  background-color: #fff; /* White background */
-  padding: 20px 30px; /* /*
+  background-color: #fff;
+  padding: 20px 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  /* max-width: 400px; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 30px 200px;
 }
 
+label {
+  color: black;
+}
+
 .form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.form-group input[type="date"] {
-  padding: 8px;
-}
-
-.form-group textarea {
-  resize: none;
-  height: 100px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .submit-button {
-  background-color: #ff6347; /* Tomato color */
+  background-color: red;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -197,23 +175,15 @@ li {
 }
 
 .submit-button:hover {
-  background-color: #ff4500; /* Darker shade on hover */
+  background-color: #ff4500;
 }
 
-/* Styles for the Goals Page */
-
-/* GoalsPage styles */
-.goals-page {
-  padding: 20px;
-  background-color: #151515; /* Dark background */
-  color: white;
-}
-
+/* Additional styling for goals page */
+.goals-page,
 .sidebar-right {
   padding: 20px;
-  background-color: #151515; /* Dark background */
+  background-color: #151515;
   color: white;
-  flex: 1; /* Adjusts to fill remaining space */
 }
 
 .goal-buttons {
@@ -223,13 +193,12 @@ li {
 }
 
 .goal-button {
-  background-color: #ff6b6b; /* Button color */
+  background-color: red;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 10px;
 }
 
 .goal-list {
@@ -238,84 +207,9 @@ li {
 }
 
 .goal-item {
-  display: flex;
-  justify-content: space-between;
-  background-color: white; /* List item background */
+  background-color: white;
   padding: 10px;
   border: 2px solid black;
   border-radius: 5px;
   margin-bottom: 10px;
-}
-
-.date-picker {
-  margin-top: 20px;
-  margin-left: 10px;
-}
-
-input[type="date"] {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #fff;
-}
-
-/* Form */
-/* Style the entire form container */
-workout-form {
-  background: linear-gradient(135deg, #fff 0%, #f0f4f8 100%);
-  border-radius: 12px;
-  padding: 30px;
-  max-width: 400px;
-  margin: 20px auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: "Montserrat", sans-serif;
-}
-
-/* Headline styling */
-form-header {
-  text-align: center;
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-/* Style the input fields */
-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  font-family: "Montserrat", sans-serif;
-}
-
-/* Focus state for input fields */
-input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-}
-
-/* Style the button */
-log-workout-button {
-  width: 100%;
-  padding: 14px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  font-family: "Montserrat", sans-serif;
-}
-
-/* Hover state for button */
-log-workout-button:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
 }

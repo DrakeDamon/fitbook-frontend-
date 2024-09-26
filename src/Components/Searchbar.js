@@ -1,28 +1,24 @@
 import { useState } from "react";
 
-function Searchbar({ setSearch }) {
-  const [searchTerm, setSearchTerm] = useState("");
+function Searchbar({ setSearch, search }) {
+ 
 
   const handleInputChange = (e) => {
-    setSearchTerm(e.target.value); 
     setSearch(e.target.value); 
   };
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); 
-    setSearch(searchTerm)
-  };
+
 
   return (
     <div>
       <div className="search-container">
-        <form onSubmit={handleSubmit}>
+        <form >
           <input
             type="text"
             placeholder="Fitbook Activity Dashboard"
             className="search-input"
-            value={searchTerm}
+            value={search}
             onChange={handleInputChange}           
           />
           <button type="submit" className="search-button">

@@ -48,6 +48,20 @@
       "type": "cardio",
       "duration": "50 minutes",
       "calories": "500"
+    },
+    {
+      "id": "579f",
+      "name": "Bike",
+      "type": "cardio",
+      "duration": "50 minutes",
+      "calories": "50"
+    },
+    {
+      "id": "2929",
+      "name": "Bike",
+      "type": "cardio",
+      "duration": "50 minutes",
+      "calories": "10"
     }
   ]
 }

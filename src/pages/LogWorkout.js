@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Sidebar from "../Components/Sidebar";
 import { NavLink, useOutletContext } from "react-router-dom";
 import LogWorkoutForm from "../Components/Form";
 
@@ -44,13 +43,7 @@ function LogWorkout() {
     setCalories('');
   };
   return (
-    <div className="dashboard">
-      <div className="sidebar">
-        <img src="/Users/daviddamon/Desktop/Fitbook.react/fitbook-frontend-/public/fitbook.PNG" alt="Fitbook Logo" className="logo" />
-        <NavLink>
-          <Sidebar links={links} />
-        </NavLink>
-      </div>
+
       <div className="main-content">
         <div className="container">
           <LogWorkoutForm 
@@ -66,7 +59,6 @@ function LogWorkout() {
           />
         </div>
       </div>
-    </div>
   );
 }
 
