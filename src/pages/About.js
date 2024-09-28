@@ -1,9 +1,6 @@
 import React from 'react';
-import { NavLink, useOutletContext } from "react-router-dom";
-import Sidebar from '../Components/Sidebar';
 
 function About() {
-  const { links } = useOutletContext(); 
 
   return (
     <div>

@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import sidebar from './Components/Sidebar'; 
-import Sidebar from './Components/Sidebar';
+import NavBar from './Components/Navbar'
 
 function App() {
   const [sharedData, setSharedData] = useState("Shared Information");
   const [workouts, setWorkouts] = useState([]);
   const [search, setSearch] = useState('');
 
-  const links = [
-    { name: 'Dashboard', path: '/dashboard' },
-    { name: 'Log Workout', path: '/log-workout' },
-    { name: 'About', path: '/about' },
-  ];
+  
 
   useEffect(() => {
     fetch('http://localhost:5001/workouts')
@@ -38,10 +33,9 @@ function App() {
 
   return (
     <div>
-       <Sidebar links={links} />
+       <NavBar />
 
-      <Outlet context={{
-        links, 
+      <Outlet context={{ 
         workouts: displayedWorkouts, 
         setWorkouts, 
         sharedData, 

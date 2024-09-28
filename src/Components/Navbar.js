@@ -1,18 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 
-function Navbar({ links }) {
+import React from "react";
+import { NavLink } from 'react-router-dom';
+function Sidebar()  {
+  
+  const links = [
+    { name: 'Dashboard', path: '/dashboard' },
+    { name: 'Log Workout', path: '/log-workout' },
+    { name: 'About', path: '/about' },
+  ];
+  
   return (
-    <nav>
-      <ul>
-        {links.map((link) => (
-          <li key={link.path}>
-            <Link to={link.path}>{link.name}</Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+ <nav class="sidebar">
+   <ul>
+     {links.map((link) => (
+       <li key={link.name}>
+         <NavLink to={link.path}>{link.name}</NavLink>
+       </li>
+     ))}
+   </ul>
+ </nav>
   );
 }
 
-export default Navbar;
+export default Sidebar;

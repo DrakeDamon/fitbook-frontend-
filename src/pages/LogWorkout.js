@@ -8,7 +8,7 @@ function LogWorkout() {
   const [duration, setDuration] = useState('');
   const [calories, setCalories] = useState('');
 
-  // Handlers for each input change
+  // Handlers for each input changes
   const handleWorkoutChange = (e) => setLogWorkout(e.target.value);
   const handleTypeChange = (e) => setType(e.target.value); 
   const handleDurationChange = (e) => setDuration(e.target.value);
